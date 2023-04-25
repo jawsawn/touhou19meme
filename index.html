@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Touhou 19 Leak Generator" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Touhou 19 Leak Generator</title>
+</head>
+
+<body>
+    <footer><p>an overengineered shitpost by jawsawn, image sheet credits goes to maribel hearn website and alphys art. ZUN pls don't sue me :^</p></footer>
+    <canvas id="canvas1">
+        <img id="teaser" src="teaser.png">
+        <img id="sheet" src="sheet.png">
+
+        <script>
+            window.addEventListener("load", function () {
+                const canvas = document.getElementById("canvas1");
+                const ctx = canvas.getContext("2d");
+                canvas.width = 512 * 2;
+                canvas.height = 384 * 2;
+                //duplicate array
+                let rngArr = [];
+                //rng
+                for (let index = 0; index < 14; index++) {
+                    let ran = Math.floor((Math.random() * 162));
+                    while (rngArr.includes(ran)) {
+                        ran = Math.floor((Math.random() * 162));
+                    }
+                    rngArr.push(ran);
+                }
+                //function rngX() { return Math.floor((Math.random() * 9)) * 80 };
+                //function rngY() { return Math.floor((Math.random() * 18)) * 80 };
+                //Draw Characters
+                //r1
+                ctx.drawImage(document.getElementById("sheet"), rngArr[0] % 9 * 80, Math.floor(rngArr[0] / 9) * 80, 80, 80, 365, 200, 100, 100);
+                ctx.drawImage(document.getElementById("sheet"), rngArr[1] % 9 * 80, Math.floor(rngArr[1] / 9) * 80, 80, 80, 465, 200, 100, 100);
+                //r2
+                ctx.drawImage(document.getElementById("sheet"), rngArr[2] % 9 * 80, Math.floor(rngArr[2] / 9) * 80, 80, 80, 615, 290, 100, 100);
+                //r3
+                ctx.drawImage(document.getElementById("sheet"), rngArr[3] % 9 * 80, Math.floor(rngArr[3] / 9) * 80, 80, 80, 365, 380, 100, 100);
+                ctx.drawImage(document.getElementById("sheet"), rngArr[4] % 9 * 80, Math.floor(rngArr[4] / 9) * 80, 80, 80, 465, 380, 100, 100);
+                ctx.drawImage(document.getElementById("sheet"), rngArr[5] % 9 * 80, Math.floor(rngArr[5] / 9) * 80, 80, 80, 560, 380, 100, 100);
+                //r4
+                ctx.drawImage(document.getElementById("sheet"), rngArr[6] % 9 * 80, Math.floor(rngArr[6] / 9) * 80, 80, 80, 310, 470, 100, 100);
+                ctx.drawImage(document.getElementById("sheet"), rngArr[7] % 9 * 80, Math.floor(rngArr[7] / 9) * 80, 80, 80, 410, 470, 100, 100);
+                ctx.drawImage(document.getElementById("sheet"), rngArr[8] % 9 * 80, Math.floor(rngArr[8] / 9) * 80, 80, 80, 510, 470, 100, 100);
+                //r5
+                ctx.drawImage(document.getElementById("sheet"), rngArr[9] % 9 * 80, Math.floor(rngArr[9] / 9) * 80, 80, 80, 365, 560, 100, 100);
+                ctx.drawImage(document.getElementById("sheet"), rngArr[10] % 9 * 80, Math.floor(rngArr[10] / 9) * 80, 80, 80, 465, 560, 100, 100);
+                ctx.drawImage(document.getElementById("sheet"), rngArr[11] % 9 * 80, Math.floor(rngArr[11] / 9) * 80, 80, 80, 560, 560, 100, 100);
+                //r6
+                ctx.drawImage(document.getElementById("sheet"), rngArr[12] % 9 * 80, Math.floor(rngArr[12] / 9) * 80, 80, 80, 410, 650, 100, 100);
+                ctx.drawImage(document.getElementById("sheet"), rngArr[13] % 9 * 80, Math.floor(rngArr[13] / 9) * 80, 80, 80, 510, 650, 100, 100);
+                //Draw Teaser
+                ctx.drawImage(document.getElementById("teaser"), 0, 0);
+            })
+        </script>
+
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    img {
+        display: none;
+    }
+
+    body {
+        display: grid;
+        place-content: center;
+        background: url(right.jpg) no-repeat 100% 0, url(left.jpg) no-repeat 0 0;
+    }
+
+    #canvas1 {
+        margin-top: 10%;
+        background-color: #ff59fd;
+        border-style: solid;
+        border-color: #ffcc33;
+        outline-offset: -15px;
+        height: calc(384px * 2);
+        width: calc(512px * 2);
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        width: 100vw;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #canvas1 {
+            height: calc(384px * 0.75);
+            width: calc(512px * 0.75);
+        }
+    }
+</style>
+
+</html>
